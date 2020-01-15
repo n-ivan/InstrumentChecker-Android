@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Instrument-Checker--Android</string>
+    <string name="welcome_generic">Welcome</string>
+    <string name="sign_in">Sign in an Instrument</string>
+    <string name="sign_out">Sign out an Instrument</string>
+    <string name="status">View Instrument Status</string>
+    <string name="profile">View Profile</string>
+    <string name="profile2">Your Profile...</string>
+</resources>
