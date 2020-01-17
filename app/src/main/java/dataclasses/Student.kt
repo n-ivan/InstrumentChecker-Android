@@ -7,19 +7,11 @@
 
 package dataclasses
 
-class Student(_name: String, _id: String, _grade: String) {
-    val name = _name.capitalize()
-    val id = _id
-    var grade = _grade
+data class Student(val name: String,val id: String,var grade: String) {
     var instrument: Instrument? = null
 
-    constructor(_name: String, _id: String, _grade: String,
-    _instrument: Instrument): this(_name,_id,_grade) {
-        this.instrument = _instrument
-    }
-
-    fun set_instrument(instrument: Instrument) {
+    constructor(name: String, id: String,grade: String,instrument: Instrument):
+            this(name,id,grade){
         this.instrument = instrument
     }
 }
-

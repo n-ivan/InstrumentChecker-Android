@@ -7,20 +7,15 @@
 
 package dataclasses
 
-class Instrument(_name: String, _insType: String, _insNum: String,
-                 _model: String, _make: String) {
-    val name = _name.capitalize()
-    val insType = _insType
-    val insNum = _insNum
-    val model: String = _model
-    val make: String = _make
-    var dateOut: String? = null
-    var timeOut: String? = null
+data class Instrument(val name: String,val insType: String,
+                       val insNum: String, val model: String,
+                       val make: String) {
+    var dateIn: String? = null
+    var dateOut: String?  = null
 
-    constructor(_name: String, _insType: String, _insNum: String,
-                _model: String, _make: String, _dateOut: String, _timeOut: String):
-            this(_name, _insType, _insNum, _model, _make) {
-        this.dateOut = _dateOut
-        this.timeOut = _timeOut
+    constructor(name: String,insType: String,insNum: String,model: String,make: String,dateOut: String, dateIn: String):
+            this(name,insType,insNum,model,make) {
+        this.dateIn = dateIn
+        this.dateOut = dateOut
     }
 }
