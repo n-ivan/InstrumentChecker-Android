@@ -6,4 +6,10 @@
     <string name="status">View Instrument Status</string>
     <string name="profile">View Profile</string>
     <string name="profile2">Your Profile...</string>
+    <string name="setup">Enter your information</string>
+    <string name="entername">Enter your name...</string>
+    <string name="enterid">Enter your ID#...</string>
+    <string name="entergrade">Enter your grade...</string>
+    <string name="save">Save</string>
+    <string name="reset">Reset User Profile</string>
 </resources>
