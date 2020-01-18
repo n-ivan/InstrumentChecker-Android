@@ -40,25 +40,60 @@ class Main_Activity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        intent = Intent(Intent.ACTION_MAIN)
+    }
+
     fun signInClick(v:View) {
-        textView_sign_in.startAnimation(clickAnim)
+        if (user.instrument == null) {
+            textView_sign_in.startAnimation(invAnim)
+            Toast.
+                makeText(applicationContext,
+                    "You don't have an instrument to sign in!",
+                    Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            textView_sign_in.startAnimation(clickAnim)
+            // when api made add sign in code here
+            user.instrument = null
+            //
+            Toast.
+                makeText(applicationContext,
+                    "Your instrument has been signed in!",
+                    Toast.LENGTH_SHORT)
+                .show()
+        }
     }
+
     fun signOutClick(v:View) {
-        textView_sign_out.startAnimation(clickAnim)
+        if (user.instrument != null) {
+            textView_sign_out.startAnimation(invAnim)
+            Toast.
+                makeText(applicationContext,
+                    "You already have an instrument out.",
+                    Toast.LENGTH_SHORT)
+                .show()
+        } else {
+            textView_sign_out.startAnimation(clickAnim)
+
+        }
+
     }
+
     fun statusClick(v:View) {
         if (user.instrument == null) {
             textView_status.startAnimation(invAnim)
             Toast.
-                makeText(applicationContext, "You don't have an instrument!",Toast.LENGTH_SHORT)
+                makeText(applicationContext, "You don't have an instrument!",
+                    Toast.LENGTH_SHORT)
                 .show()
         } else {
             textView_status.startAnimation(clickAnim)
         }
-
     }
+
     fun profileClick(v:View) {
-        var intent = Intent(applicationContext, SetupProfile::class.java)
         textView_profile.startAnimation(clickAnim)
         if (user.name!="no_name") {
             val gson = Gson()
@@ -69,4 +104,5 @@ class Main_Activity : AppCompatActivity() {
         }
         startActivity(intent)
     }
+
 }

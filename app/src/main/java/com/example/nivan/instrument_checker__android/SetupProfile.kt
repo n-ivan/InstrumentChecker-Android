@@ -22,18 +22,19 @@ class SetupProfile : AppCompatActivity() {
         val name = editText_name.text.toString()
         val id = editText_id.text.toString()
         val grade = editText_grade.text.toString()
-        val noEdit_name = getString(R.string.entername)
-        val noEdit_id = getString(R.string.enterid)
-        val noEdit_grade = getString(R.string.entergrade)
+        val noEditName = getString(R.string.entername)
+        val noEditId = getString(R.string.enterid)
+        val noEditGrade = getString(R.string.entergrade)
 
-        if (name!=noEdit_name) {
-            if (id!=noEdit_id) {
-                if (grade!=noEdit_grade) {
+        if (name!=noEditName) {
+            if (id!=noEditId) {
+                if (grade!=noEditGrade) {
                     val gson = Gson()
                     user = Student(name,id, grade)
                     val jsonString = gson.toJson(user)
                     intent = Intent(applicationContext, Profile::class.java)
                     intent.putExtra("User",jsonString)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     saveUser(user,applicationContext.filesDir)
                     startActivity(intent)
                 }

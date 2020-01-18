@@ -20,6 +20,8 @@
         </activity>
         <activity android:name=".SetupProfile">
         </activity>
+        <activity android:name=".SignOut">
+        </activity>
     </application>
 
 </manifest>
