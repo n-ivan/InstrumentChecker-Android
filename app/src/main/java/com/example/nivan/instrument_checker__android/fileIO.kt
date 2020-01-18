@@ -7,6 +7,7 @@ import java.io.FileWriter
 import java.io.Writer
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import dataclasses.Instrument
 import java.lang.Error
 
 
@@ -26,6 +27,15 @@ fun loadUser(dir: File): Student {
         println("Failed to load User")
     }
     return user
+}
+
+fun loadInstruments(dir: File): Array<Instrument> {
+    val gson = Gson()
+    val jsonFile = File(dir,"instruments.json")
+    val text: String = jsonFile.readText()
+    val instruments: Array<Instrument>
+            = gson.fromJson(text, Array<Instrument>::class.java)
+    return instruments
 }
 
 private fun saveJSON(obj: Any,fileName: String,dir: File) {

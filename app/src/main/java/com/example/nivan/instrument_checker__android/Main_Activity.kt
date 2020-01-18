@@ -76,7 +76,8 @@ class Main_Activity : AppCompatActivity() {
                 .show()
         } else {
             textView_sign_out.startAnimation(clickAnim)
-
+            intent = Intent(applicationContext, SignOut::class.java)
+            startActivity(intent)
         }
 
     }
